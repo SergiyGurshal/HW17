@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,SACE,qBAAsB,CACtB,WAAY,CACZ,iBACF","file":"main.d4ac97ca.chunk.css","sourcesContent":[".loadBar {\r\n  background-color: aqua;\r\n  height: 30px;\r\n  margin-bottom: 5px;\r\n}\r\n"]}
