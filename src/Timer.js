@@ -32,6 +32,9 @@ export default class Timer extends Component {
       this.timer = setInterval(this.countDown, this.props.step * 1000)
       this.props.onTimeStart(this.state.seconds)
     }
+
+    document.getElementById('startBtn').disabled = true
+    document.getElementById('pauseBtn').disabled = false
   }
 
   componentDidMount() {
@@ -40,7 +43,12 @@ export default class Timer extends Component {
 
     if (this.props.autostart) {
       this.startTimer()
+      document.getElementById('startBtn').disabled = false
+      document.getElementById('pauseBtn').disabled = true
     }
+
+    document.getElementById('startBtn').disabled = true
+    document.getElementById('pauseBtn').disabled = false
   }
 
   countDown() {
@@ -62,6 +70,9 @@ export default class Timer extends Component {
   pauseTimer() {
     this.props.onTimePause(this.state.seconds)
     clearInterval(this.timer)
+
+    document.getElementById('startBtn').disabled = false
+    document.getElementById('pauseBtn').disabled = true
   }
 
   render() {
@@ -71,8 +82,12 @@ export default class Timer extends Component {
           {this.state.time.h}:{this.state.time.m}:{this.state.time.s}
         </div>
         <div className="loadBar" style={{ width: `${this.state.width}%` }}></div>
-        <button onClick={this.startTimer}>Start</button>
-        <button onClick={this.pauseTimer}>Pause</button>
+        <button onClick={this.startTimer} id="startBtn">
+          Start
+        </button>
+        <button onClick={this.pauseTimer} id="pauseBtn">
+          Pause
+        </button>
       </div>
     )
   }
